@@ -1,7 +1,7 @@
 import { ProductType } from "./ProductType";
 import { GoodConfig } from "../goodConfig";
 
-let config: GoodConfig = require("../goodConfig");
+let config: GoodConfig = require("../goodConfig.json");
 
 export class Product {
   public title: string;
