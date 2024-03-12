@@ -8,7 +8,7 @@ export class Product {
   public imageUrl: string;
   public basePrice: number;
   public taxRate: number = config.taxRate;
-  public discountRate: number = config.taxRate;
+  public discountRate: number = config.discountRate;
   public productType: ProductType;
 
   constructor(
@@ -24,10 +24,10 @@ export class Product {
   }
 
   public getPrice(): number {
-    return this.basePrice * (1 - this.discountRate) * this.taxRate;
+    return Math.round(this.basePrice * (1 - this.discountRate) * this.taxRate);
   }
 
   public getPriceWithoutTaxes(): number {
-    return this.basePrice * (1 - this.discountRate);
+    return Math.round(this.basePrice * (1 - this.discountRate));
   }
 }

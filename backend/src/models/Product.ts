@@ -1,7 +1,7 @@
 import { GoodConfig } from "../goodConfig";
 import { ProductType } from "./ProductType";
 
-let config: GoodConfig = require("../../goodConfig");
+let config: GoodConfig = require("../../goodConfig.json");
 
 export class Product {
   public title: string;
@@ -24,10 +24,10 @@ export class Product {
   }
 
   public getPrice(): number {
-    return this.basePrice * (1 - this.discountRate) * this.taxRate;
+    return Math.round(this.basePrice * (1 - this.discountRate) * this.taxRate);
   }
 
   public getPriceWithoutTaxes(): number {
-    return this.basePrice * (1 - this.discountRate);
+    return Math.round(this.basePrice * (1 - this.discountRate));
   }
 }
